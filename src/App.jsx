@@ -492,7 +492,7 @@ function CopyButton({ text }) {
     setTimeout(() => setCopied(false), 1500);
   };
   return (
-    <button onClick={handleCopy} className="p-1 rounded hover:bg-ink-600 transition-colors" title="Copy to clipboard">
+    <button onClick={handleCopy} className="p-1 rounded hover:bg-ink-700 transition-colors" title="Copy to clipboard">
       {copied ? <Check className="w-3.5 h-3.5 text-sage-400" /> : <Copy className="w-3.5 h-3.5 text-parchment-400" />}
     </button>
   );
@@ -694,7 +694,7 @@ function VocabTaskView({ items, onDone }) {
             onClick={() => setFlipped(!flipped)}
             style={{ minHeight: "240px" }}
           >
-            <div className="card-front absolute inset-0 bg-ink-800 border border-ink-600 rounded-xl p-8 flex flex-col items-center justify-center">
+            <div className="card-front absolute inset-0 bg-ink-800 border border-ink-700 rounded-xl p-8 flex flex-col items-center justify-center shadow-sm">
               <span className="text-parchment-500 text-xs uppercase tracking-widest font-sans mb-4">{current.category}</span>
               <h2 className="font-serif text-4xl md:text-5xl font-medium text-parchment-50 mb-3 italic">{current.word}</h2>
               <span className="text-parchment-400 text-sm font-sans">{current.pos}</span>
@@ -702,7 +702,7 @@ function VocabTaskView({ items, onDone }) {
                 <Eye className="w-3 h-3" /> Tap to reveal
               </span>
             </div>
-            <div className="card-back absolute inset-0 bg-ink-800 border border-gold-400/20 rounded-xl p-8 flex flex-col">
+            <div className="card-back absolute inset-0 bg-ink-800 border border-gold-400/20 rounded-xl p-8 flex flex-col shadow-sm">
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <h3 className="font-serif text-2xl text-parchment-50 italic">{current.word}</h3>
@@ -723,7 +723,7 @@ function VocabTaskView({ items, onDone }) {
       {flipped && (
         <div className="mb-4 animate-fade-in">
           {generatedExample && (
-            <div className="bg-ink-700/50 border border-ink-600 rounded-lg p-3 mb-3">
+            <div className="bg-ink-700/50 border border-ink-700 rounded-lg p-3 mb-3">
               <p className="text-parchment-300 font-sans text-sm flex items-start gap-2">
                 <Sparkles className="w-4 h-4 text-gold-400 mt-0.5 shrink-0" />
                 <span className="italic">{generatedExample}</span>
@@ -742,7 +742,7 @@ function VocabTaskView({ items, onDone }) {
       <div className="flex items-center justify-center gap-3">
         <button onClick={() => { setCurrentIndex(Math.max(0, currentIndex - 1)); setFlipped(false); setGeneratedExample(""); }}
           disabled={currentIndex === 0}
-          className="p-2 rounded-lg bg-ink-700 border border-ink-600 text-parchment-400 hover:border-parchment-500/30 transition-all disabled:opacity-30">
+          className="p-2 rounded-lg bg-ink-700 border border-ink-700 text-parchment-400 hover:border-parchment-500/30 transition-all disabled:opacity-30">
           <ChevronLeft className="w-5 h-5" />
         </button>
         <button onClick={() => markCard("learning")}
@@ -755,7 +755,7 @@ function VocabTaskView({ items, onDone }) {
         </button>
         {!isLast ? (
           <button onClick={() => { setCurrentIndex(currentIndex + 1); setFlipped(false); setGeneratedExample(""); }}
-            className="p-2 rounded-lg bg-ink-700 border border-ink-600 text-parchment-400 hover:border-parchment-500/30 transition-all">
+            className="p-2 rounded-lg bg-ink-700 border border-ink-700 text-parchment-400 hover:border-parchment-500/30 transition-all">
             <ChevronRight className="w-5 h-5" />
           </button>
         ) : (
@@ -778,7 +778,7 @@ function PhrasesTaskView({ items, onDone }) {
     <div className="animate-fade-in max-w-2xl mx-auto space-y-4">
       <p className="text-parchment-500 text-xs font-sans uppercase tracking-widest mb-2">Learn these phrases</p>
       {items.map((item, i) => (
-        <div key={i} className="bg-ink-800 border border-ink-600 rounded-xl p-5" style={{ animationDelay: `${i * 150}ms` }}>
+        <div key={i} className="bg-ink-800 border border-ink-700 rounded-xl shadow-sm p-5" style={{ animationDelay: `${i * 150}ms` }}>
           <div className="flex items-start justify-between mb-2">
             <span className="text-gold-400 text-[10px] font-sans uppercase tracking-widest">{item.category}</span>
             <CopyButton text={item.phrase} />
@@ -860,14 +860,14 @@ No markdown fences, no preamble. JSON only.`,
         </div>
       </div>
 
-      <div className="bg-ink-800 border border-ink-600 rounded-xl p-6 mb-4">
+      <div className="bg-ink-800 border border-ink-700 rounded-xl shadow-sm p-6 mb-4">
         <span className="text-parchment-500 text-xs uppercase tracking-widest font-sans">Rewrite in academic English</span>
         <p className="mt-3 text-parchment-100 font-serif text-lg italic">"{exercise.casual}"</p>
       </div>
 
       <textarea value={userRewrite} onChange={(e) => setUserRewrite(e.target.value)}
         placeholder="Type your academic version…"
-        className="w-full bg-ink-800 border border-ink-600 rounded-xl p-4 text-parchment-100 font-sans text-sm resize-none h-28 placeholder:text-parchment-500 focus:border-gold-400/40 transition-colors mb-4" />
+        className="w-full bg-ink-800 border border-ink-700 rounded-xl shadow-sm p-4 text-parchment-100 font-sans text-sm resize-none h-28 placeholder:text-parchment-500 focus:border-gold-400/40 transition-colors mb-4" />
 
       <div className="flex items-center gap-3 mb-6">
         <button onClick={checkRewrite} disabled={loading || !userRewrite.trim()}
@@ -876,7 +876,7 @@ No markdown fences, no preamble. JSON only.`,
           Check
         </button>
         <button onClick={() => setShowModel(!showModel)}
-          className="px-4 py-2 rounded-lg bg-ink-700 border border-ink-600 text-parchment-400 hover:border-parchment-500/30 transition-all font-sans text-sm flex items-center gap-1.5">
+          className="px-4 py-2 rounded-lg bg-ink-700 border border-ink-700 text-parchment-400 hover:border-parchment-500/30 transition-all font-sans text-sm flex items-center gap-1.5">
           {showModel ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
           {showModel ? "Hide" : "Show"} answer
         </button>
@@ -944,7 +944,7 @@ function CompareTaskView({ items, onDone }) {
     <div className="animate-fade-in max-w-2xl mx-auto space-y-4">
       <p className="text-parchment-500 text-xs font-sans uppercase tracking-widest mb-2">What's the academic equivalent?</p>
       {items.map((pair, i) => (
-        <div key={i} className={`border rounded-xl overflow-hidden transition-all ${revealed[i] ? "border-gold-400/20 bg-ink-800" : "border-ink-600 bg-ink-800"}`}>
+        <div key={i} className={`border rounded-xl overflow-hidden transition-all ${revealed[i] ? "border-gold-400/20 bg-ink-800" : "border-ink-700 bg-ink-800"}`}>
           <div className="p-5">
             <span className="text-parchment-500 text-[10px] font-sans uppercase tracking-widest">{pair.category}</span>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
@@ -961,7 +961,7 @@ function CompareTaskView({ items, onDone }) {
                   </div>
                 ) : (
                   <button onClick={() => revealItem(i)}
-                    className="mt-1 px-3 py-1.5 rounded-lg bg-ink-700 border border-ink-600 text-parchment-400 hover:border-parchment-500/30 transition-all font-sans text-sm flex items-center gap-1.5">
+                    className="mt-1 px-3 py-1.5 rounded-lg bg-ink-700 border border-ink-700 text-parchment-400 hover:border-parchment-500/30 transition-all font-sans text-sm flex items-center gap-1.5">
                     <Eye className="w-3.5 h-3.5" /> Reveal
                   </button>
                 )}
@@ -988,9 +988,46 @@ function GrammarTaskView({ items, onDone }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswer, setUserAnswer] = useState("");
   const [showAnswer, setShowAnswer] = useState(false);
+  const [feedback, setFeedback] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [completedCount, setCompletedCount] = useState(0);
 
   const practice = items[currentIndex];
+
+  const checkAnswer = async () => {
+    if (!userAnswer.trim()) {
+      setShowAnswer(true);
+      setFeedback(null);
+      return;
+    }
+    setLoading(true);
+    const normalized = (s) => s.trim().toLowerCase().replace(/[^\w\s]/g, "").replace(/\s+/g, " ");
+    const isExact = normalized(userAnswer) === normalized(practice.corrected);
+
+    if (isExact) {
+      setFeedback({ match: true });
+      setShowAnswer(true);
+      setLoading(false);
+      return;
+    }
+
+    const result = await callClaude(
+      `You are an academic English grammar tutor. Compare the user's correction of a sentence against the model answer. Return ONLY a JSON object with:
+- "match": boolean (true if semantically equivalent and grammatically correct, even if wording differs slightly)
+- "verdict": string ("correct", "partially correct", or "incorrect")
+- "explanation": string (brief explanation of what the user got right and what they missed, referencing the specific grammar issues: ${practice.categories.join(", ")})
+No markdown fences, no preamble. JSON only.`,
+      `Original (with errors): "${practice.sentence}"\nModel answer: "${practice.corrected}"\nUser's answer: "${userAnswer}"`
+    );
+    try {
+      const parsed = JSON.parse(result);
+      setFeedback(parsed);
+    } catch {
+      setFeedback({ match: false, verdict: "partially correct", explanation: "Could not evaluate — compare with the correct version below." });
+    }
+    setShowAnswer(true);
+    setLoading(false);
+  };
 
   const nextOrDone = () => {
     const newCompleted = completedCount + 1;
@@ -999,6 +1036,7 @@ function GrammarTaskView({ items, onDone }) {
       setCurrentIndex(currentIndex + 1);
       setUserAnswer("");
       setShowAnswer(false);
+      setFeedback(null);
     } else {
       onDone();
     }
@@ -1015,7 +1053,7 @@ function GrammarTaskView({ items, onDone }) {
         </div>
       </div>
 
-      <div className="bg-ink-800 border border-ink-600 rounded-xl p-6 mb-4">
+      <div className="bg-ink-800 border border-ink-700 rounded-xl shadow-sm p-6 mb-4">
         <span className="text-parchment-500 text-xs uppercase tracking-widest font-sans">Fix the errors</span>
         <p className="mt-3 text-parchment-100 font-serif text-lg italic">"{practice.sentence}"</p>
         <div className="flex gap-1.5 mt-3">
@@ -1027,17 +1065,41 @@ function GrammarTaskView({ items, onDone }) {
 
       <textarea value={userAnswer} onChange={(e) => setUserAnswer(e.target.value)}
         placeholder="Type the corrected sentence…"
-        className="w-full bg-ink-800 border border-ink-600 rounded-xl p-4 text-parchment-100 font-sans text-sm resize-none h-20 placeholder:text-parchment-500 focus:border-gold-400/40 transition-colors mb-4" />
+        className="w-full bg-ink-800 border border-ink-700 rounded-xl shadow-sm p-4 text-parchment-100 font-sans text-sm resize-none h-20 placeholder:text-parchment-500 focus:border-gold-400/40 transition-colors mb-4" />
 
       {!showAnswer && (
-        <button onClick={() => setShowAnswer(true)}
-          className="px-4 py-2 rounded-lg bg-gold-400/15 border border-gold-400/30 text-gold-400 hover:bg-gold-400/25 transition-all font-sans text-sm mb-4">
+        <button onClick={checkAnswer} disabled={loading}
+          className="px-4 py-2 rounded-lg bg-gold-400/15 border border-gold-400/30 text-gold-400 hover:bg-gold-400/25 transition-all font-sans text-sm mb-4 flex items-center gap-1.5 disabled:opacity-50">
+          {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
           Check answer
         </button>
       )}
 
       {showAnswer && (
         <>
+          {feedback && (
+            <div className={`rounded-xl p-4 mb-4 animate-fade-in border ${
+              feedback.match || feedback.verdict === "correct"
+                ? "bg-sage-400/5 border-sage-400/20"
+                : feedback.verdict === "partially correct"
+                ? "bg-gold-400/5 border-gold-400/20"
+                : "bg-wine-400/5 border-wine-400/20"
+            }`}>
+              <span className={`text-xs uppercase tracking-widest font-sans ${
+                feedback.match || feedback.verdict === "correct"
+                  ? "text-sage-400"
+                  : feedback.verdict === "partially correct"
+                  ? "text-gold-400"
+                  : "text-wine-400"
+              }`}>
+                {feedback.match || feedback.verdict === "correct" ? "Correct!" : feedback.verdict === "partially correct" ? "Partially correct" : "Not quite"}
+              </span>
+              {feedback.explanation && (
+                <p className="text-parchment-200 font-sans text-sm mt-2">{feedback.explanation}</p>
+              )}
+            </div>
+          )}
+
           <div className="bg-sage-400/5 border border-sage-400/20 rounded-xl p-4 mb-4 animate-fade-in">
             <span className="text-sage-400 text-xs uppercase tracking-widest font-sans">Correct version</span>
             <p className="text-parchment-100 font-sans text-sm mt-2">{practice.corrected}</p>
@@ -1065,7 +1127,7 @@ function GrammarRefTaskView({ items, onDone }) {
     <div className="animate-fade-in max-w-2xl mx-auto space-y-4">
       <p className="text-parchment-500 text-xs font-sans uppercase tracking-widest mb-2">Study these error patterns</p>
       {items.map((item, i) => (
-        <div key={i} className="bg-ink-800 border border-ink-600 rounded-xl p-5">
+        <div key={i} className="bg-ink-800 border border-ink-700 rounded-xl shadow-sm p-5">
           <span className="text-wine-400 text-[10px] font-sans uppercase tracking-widest">{item.category}</span>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3 mb-3">
             <div>
@@ -1077,7 +1139,7 @@ function GrammarRefTaskView({ items, onDone }) {
               <p className="text-parchment-100 font-sans text-sm mt-0.5">{item.correction}</p>
             </div>
           </div>
-          <p className="text-parchment-400 font-sans text-xs border-t border-ink-600 pt-3">{item.explanation}</p>
+          <p className="text-parchment-400 font-sans text-xs border-t border-ink-700 pt-3">{item.explanation}</p>
         </div>
       ))}
       <button onClick={onDone}
@@ -1280,7 +1342,7 @@ export default function App() {
 
   if (!ready) {
     return (
-      <div className="min-h-screen bg-ink-950 flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <Loader2 className="w-6 h-6 text-gold-400 animate-spin" />
       </div>
     );
@@ -1288,7 +1350,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-ink-950">
-      <header className="border-b border-ink-700 bg-ink-900/80 backdrop-blur-sm sticky top-0 z-50">
+      <header className="border-b border-ink-700 bg-ink-900/90 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
             {view !== "home" ? (

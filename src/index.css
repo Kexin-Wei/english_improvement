@@ -4,17 +4,17 @@
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #3d4258 #0f1117;
+  scrollbar-color: #d1cbc2 #f3efe9;
 }
 
 ::selection {
-  background-color: rgba(212, 165, 116, 0.3);
-  color: #f5f0e8;
+  background-color: rgba(184, 134, 11, 0.15);
+  color: #1c1917;
 }
 
 body {
-  background-color: #0b0d13;
-  color: #e8e2d6;
+  background-color: #faf8f5;
+  color: #2e2a26;
   font-family: 'Nunito Sans', system-ui, sans-serif;
 }
 
@@ -52,7 +52,7 @@ body {
 }
 
 .loading-shimmer {
-  background: linear-gradient(90deg, #1a1d27 25%, #232736 50%, #1a1d27 75%);
+  background: linear-gradient(90deg, #f3efe9 25%, #e5dfd7 50%, #f3efe9 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
@@ -80,5 +80,5 @@ body {
 
 textarea:focus, input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(212, 165, 116, 0.3);
+  box-shadow: 0 0 0 2px rgba(184, 134, 11, 0.2);
 }
