@@ -362,14 +362,223 @@ const GRAMMAR_DATA = {
    ═══════════════════════════════════════════ */
 
 const GRAMMAR_PRACTICE = [
-  { sentence: "We propose new algorithm for detect the malware in network.", corrected: "We propose a new algorithm for detecting malware in the network.", categories: ["Article usage", "Preposition choice"] },
-  { sentence: "The researches shows that system have many vulnerability.", corrected: "The research shows that the system has many vulnerabilities.", categories: ["Singular/plural agreement", "Article usage"] },
-  { sentence: "We test the system yesterday and find it work well.", corrected: "We tested the system yesterday and found that it worked well.", categories: ["Tense consistency"] },
-  { sentence: "This method is different with the traditional approach, it uses deep learning.", corrected: "This method is different from the traditional approach; it uses deep learning.", categories: ["Preposition choice", "Run-on sentences"] },
-  { sentence: "According to our experiment, each of the results are satisfactory.", corrected: "Based on our experiment, each of the results is satisfactory.", categories: ["Preposition choice", "Subject-verb agreement"] },
-  { sentence: "We can from the log files see that number of attack have increased.", corrected: "We can see from the log files that the number of attacks has increased.", categories: ["Word order", "Article usage", "Subject-verb agreement"] },
-  { sentence: "In future, more researches need to be done about this topic.", corrected: "In the future, more research needs to be done on this topic.", categories: ["Article usage", "Singular/plural agreement", "Preposition choice"] },
-  { sentence: "The system was compose by three module and tested under different condition.", corrected: "The system was composed of three modules and tested under different conditions.", categories: ["Preposition choice", "Singular/plural agreement"] },
+  // === ARTICLES (a/an/the) — 40 sentences ===
+  { sentence: "We propose new algorithm for detecting malware in network.", corrected: "We propose a new algorithm for detecting malware in the network.", categories: ["Article usage"] },
+  { sentence: "Encoder processes the input sequence and produces representation.", corrected: "The encoder processes the input sequence and produces a representation.", categories: ["Article usage"] },
+  { sentence: "In decoder, cross-attention layer attends to encoder output.", corrected: "In the decoder, a cross-attention layer attends to the encoder output.", categories: ["Article usage"] },
+  { sentence: "Human stabilize the object in unstable environment.", corrected: "A human stabilizes the object in an unstable environment.", categories: ["Article usage", "Subject-verb agreement"] },
+  { sentence: "System consists of obstacle that delivers electrical shock.", corrected: "The system consists of an obstacle that delivers an electrical shock.", categories: ["Article usage"] },
+  { sentence: "Model was tested on benchmark constructed from two platforms.", corrected: "The model was tested on a benchmark constructed from two platforms.", categories: ["Article usage"] },
+  { sentence: "With multi-head attention layer, decoder can attend to different positions.", corrected: "With a multi-head attention layer, the decoder can attend to different positions.", categories: ["Article usage"] },
+  { sentence: "For human to execute command, interface must be intuitive.", corrected: "For a human to execute a command, the interface must be intuitive.", categories: ["Article usage"] },
+  { sentence: "Accelerometer was attached to participant's finger.", corrected: "An accelerometer was attached to the participant's finger.", categories: ["Article usage"] },
+  { sentence: "Force sensor was located beneath platform.", corrected: "A force sensor was located beneath the platform.", categories: ["Article usage"] },
+  { sentence: "Framework was evaluated by three expert testers in controlled setting.", corrected: "The framework was evaluated by three expert testers in a controlled setting.", categories: ["Article usage"] },
+  { sentence: "Each attack was recorded by intrusion detection system.", corrected: "Each attack was recorded by an intrusion detection system.", categories: ["Article usage"] },
+  { sentence: "Output is passed through linear layer to produce probability distribution.", corrected: "The output is passed through a linear layer to produce a probability distribution.", categories: ["Article usage"] },
+  { sentence: "In generation module, tokens are decoded sequentially.", corrected: "In the generation module, tokens are decoded sequentially.", categories: ["Article usage"] },
+  { sentence: "From user interface, operator can monitor system status.", corrected: "From the user interface, an operator can monitor the system status.", categories: ["Article usage"] },
+  { sentence: "Camera was positioned above platform to capture movements.", corrected: "A camera was positioned above the platform to capture movements.", categories: ["Article usage"] },
+  { sentence: "Attention mechanism enables model to focus on relevant features.", corrected: "The attention mechanism enables the model to focus on relevant features.", categories: ["Article usage"] },
+  { sentence: "We train model on large dataset with shorter time gap.", corrected: "We train the model on a large dataset with a shorter time gap.", categories: ["Article usage"] },
+  { sentence: "Pure structure without attention is insufficient for this task.", corrected: "A pure structure without attention is insufficient for this task.", categories: ["Article usage"] },
+  { sentence: "Latent space captures high-level representation of input.", corrected: "The latent space captures a high-level representation of the input.", categories: ["Article usage"] },
+  { sentence: "While as decoder, the network reconstructs original signal.", corrected: "While as a decoder, the network reconstructs the original signal.", categories: ["Article usage"] },
+  { sentence: "Sensor located beneath surface measures applied force.", corrected: "A sensor located beneath the surface measures the applied force.", categories: ["Article usage"] },
+  { sentence: "Experiment was conducted in laboratory under controlled conditions.", corrected: "The experiment was conducted in a laboratory under controlled conditions.", categories: ["Article usage"] },
+  { sentence: "We deploy agent in simulated environment to evaluate performance.", corrected: "We deploy an agent in a simulated environment to evaluate performance.", categories: ["Article usage"] },
+  { sentence: "Result suggests that new method outperforms baseline.", corrected: "The result suggests that the new method outperforms the baseline.", categories: ["Article usage"] },
+  { sentence: "There is significant gap between alert and release.", corrected: "There is a significant gap between the alert and the release.", categories: ["Article usage"] },
+  { sentence: "Authors outline novel approach to solving problem.", corrected: "The authors outline a novel approach to solving the problem.", categories: ["Article usage"] },
+  { sentence: "Each the module was tested independently.", corrected: "Each module was tested independently.", categories: ["Article usage"] },
+  { sentence: "The rehabilitation is important for patient recovery.", corrected: "Rehabilitation is important for patient recovery.", categories: ["Article usage"] },
+  { sentence: "Core consists of encoder and decoder.", corrected: "The core consists of an encoder and a decoder.", categories: ["Article usage"] },
+  { sentence: "We introduce an pure convolutional architecture for this task.", corrected: "We introduce a pure convolutional architecture for this task.", categories: ["Article usage"] },
+  { sentence: "Loss function measures difference between predicted and actual output.", corrected: "The loss function measures the difference between the predicted and actual output.", categories: ["Article usage"] },
+  { sentence: "In this paper, we present framework for multi-agent coordination.", corrected: "In this paper, we present a framework for multi-agent coordination.", categories: ["Article usage"] },
+  { sentence: "Generator produces realistic image from noise vector.", corrected: "The generator produces a realistic image from a noise vector.", categories: ["Article usage"] },
+  { sentence: "Obstacle was placed in path to constrain escape movements.", corrected: "An obstacle was placed in the path to constrain escape movements.", categories: ["Article usage"] },
+  { sentence: "We conducted survey for the field of embodied AI.", corrected: "We conducted a survey of the field of embodied AI.", categories: ["Article usage", "Preposition choice"] },
+  { sentence: "System achieves state-of-the-art performance on standard benchmark.", corrected: "The system achieves state-of-the-art performance on a standard benchmark.", categories: ["Article usage"] },
+  { sentence: "Proposed method reduces computational cost by significant margin.", corrected: "The proposed method reduces the computational cost by a significant margin.", categories: ["Article usage"] },
+  { sentence: "Network learns to map input to output through series of transformations.", corrected: "The network learns to map the input to the output through a series of transformations.", categories: ["Article usage"] },
+  { sentence: "We attach sensor to end of robotic arm.", corrected: "We attach a sensor to the end of the robotic arm.", categories: ["Article usage"] },
+
+  // === PREPOSITIONS — 30 sentences ===
+  { sentence: "This method is similar as the traditional approach.", corrected: "This method is similar to the traditional approach.", categories: ["Preposition choice"] },
+  { sentence: "The new module is integrated in the existing pipeline.", corrected: "The new module is integrated into the existing pipeline.", categories: ["Preposition choice"] },
+  { sentence: "The system was compose by three sub-modules.", corrected: "The system was composed of three sub-modules.", categories: ["Preposition choice"] },
+  { sentence: "The robot can help on rehabilitation for stroke patients.", corrected: "The robot can help with rehabilitation for stroke patients.", categories: ["Preposition choice"] },
+  { sentence: "The time gap of the alert and the response was measured.", corrected: "The time gap between the alert and the response was measured.", categories: ["Preposition choice"] },
+  { sentence: "More research needs to be done about this topic.", corrected: "More research needs to be done on this topic.", categories: ["Preposition choice"] },
+  { sentence: "These features are incorporated in the final model.", corrected: "These features are incorporated into the final model.", categories: ["Preposition choice"] },
+  { sentence: "Memory is integrated in planning through a shared representation.", corrected: "Memory is integrated into planning through a shared representation.", categories: ["Preposition choice"] },
+  { sentence: "The contributions to DCGAN are discussed in Section 3.", corrected: "The contributions in DCGAN are discussed in Section 3.", categories: ["Preposition choice"] },
+  { sentence: "The obstacle was powered with an electric charge.", corrected: "The obstacle was equipped with an electric charge.", categories: ["Word choice", "Preposition choice"] },
+  { sentence: "This approach is different with the previous method.", corrected: "This approach is different from the previous method.", categories: ["Preposition choice"] },
+  { sentence: "The agent relies in past experience to make decisions.", corrected: "The agent relies on past experience to make decisions.", categories: ["Preposition choice"] },
+  { sentence: "Prior of the experiment, participants were briefed.", corrected: "Prior to the experiment, participants were briefed.", categories: ["Preposition choice"] },
+  { sentence: "Tokens are projected in a high-dimensional space.", corrected: "Tokens are projected into a high-dimensional space.", categories: ["Preposition choice"] },
+  { sentence: "The model was tested under different condition and compared against the baseline.", corrected: "The model was tested under different conditions and compared against the baseline.", categories: ["Preposition choice", "Singular/plural"] },
+  { sentence: "The data is fed in the network for training.", corrected: "The data is fed into the network for training.", categories: ["Preposition choice"] },
+  { sentence: "The framework was designed to interact to bare foot.", corrected: "The framework was designed for interaction involving bare feet.", categories: ["Preposition choice", "Word choice"] },
+  { sentence: "This is a comprehensive survey for the field of autonomous driving.", corrected: "This is a comprehensive survey of the field of autonomous driving.", categories: ["Preposition choice"] },
+  { sentence: "The system integrates sensory feedback inside the control loop.", corrected: "The system integrates sensory feedback into the control loop.", categories: ["Preposition choice"] },
+  { sentence: "We compare our results to previous work in this domain.", corrected: "We compare our results with previous work in this domain.", categories: ["Preposition choice"] },
+  { sentence: "The classifier is less interactive compared to the generative model.", corrected: "The classifier is less interactive than the generative model.", categories: ["Preposition choice"] },
+  { sentence: "The study focuses in the effects of noise on performance.", corrected: "The study focuses on the effects of noise on performance.", categories: ["Preposition choice"] },
+  { sentence: "Building in prior work, we extend the framework.", corrected: "Building on prior work, we extend the framework.", categories: ["Preposition choice"] },
+  { sentence: "The gradient is propagated from the output back at the input.", corrected: "The gradient is propagated from the output back to the input.", categories: ["Preposition choice"] },
+  { sentence: "These findings are consistent to the theoretical predictions.", corrected: "These findings are consistent with the theoretical predictions.", categories: ["Preposition choice"] },
+  { sentence: "The reward signal depends from the agent's behaviour.", corrected: "The reward signal depends on the agent's behaviour.", categories: ["Preposition choice"] },
+  { sentence: "Subjects were divided in innocuous and painful groups.", corrected: "Subjects were divided into innocuous and painful groups.", categories: ["Preposition choice"] },
+  { sentence: "The encoder maps the input in a latent representation.", corrected: "The encoder maps the input to a latent representation.", categories: ["Preposition choice"] },
+  { sentence: "This loss is related in measuring the reconstruction error.", corrected: "This loss is related to measuring the reconstruction error.", categories: ["Preposition choice"] },
+  { sentence: "The performance improvement is attributed at the new attention mechanism.", corrected: "The performance improvement is attributed to the new attention mechanism.", categories: ["Preposition choice"] },
+
+  // === SUBJECT-VERB AGREEMENT — 25 sentences ===
+  { sentence: "The examination demonstrate that the model is effective.", corrected: "The examination demonstrates that the model is effective.", categories: ["Subject-verb agreement"] },
+  { sentence: "The attention mechanism add N sets of weight matrices.", corrected: "The attention mechanism adds N sets of weight matrices.", categories: ["Subject-verb agreement"] },
+  { sentence: "The last two layers is responsible for the final prediction.", corrected: "The last two layers are responsible for the final prediction.", categories: ["Subject-verb agreement"] },
+  { sentence: "VLA model has commonly two main components.", corrected: "VLA models commonly have two main components.", categories: ["Subject-verb agreement", "Word order"] },
+  { sentence: "This domain try to bridge the gap between simulation and reality.", corrected: "This domain tries to bridge the gap between simulation and reality.", categories: ["Subject-verb agreement"] },
+  { sentence: "The task doesn't requires any human supervision.", corrected: "The task doesn't require any human supervision.", categories: ["Subject-verb agreement"] },
+  { sentence: "Several methods demonstrating strong performance on this benchmark.", corrected: "Several methods demonstrate strong performance on this benchmark.", categories: ["Subject-verb agreement"] },
+  { sentence: "Each of the results are statistically significant.", corrected: "Each of the results is statistically significant.", categories: ["Subject-verb agreement"] },
+  { sentence: "The number of attacks have increased significantly.", corrected: "The number of attacks has increased significantly.", categories: ["Subject-verb agreement"] },
+  { sentence: "The data shows that the system perform well under stress.", corrected: "The data show that the system performs well under stress.", categories: ["Subject-verb agreement"] },
+  { sentence: "A set of features are extracted from the input.", corrected: "A set of features is extracted from the input.", categories: ["Subject-verb agreement"] },
+  { sentence: "The architecture, along with the training strategy, improve performance.", corrected: "The architecture, along with the training strategy, improves performance.", categories: ["Subject-verb agreement"] },
+  { sentence: "Neither the encoder nor the decoder require pre-training.", corrected: "Neither the encoder nor the decoder requires pre-training.", categories: ["Subject-verb agreement"] },
+  { sentence: "The combination of these techniques yield better results.", corrected: "The combination of these techniques yields better results.", categories: ["Subject-verb agreement"] },
+  { sentence: "Human stabilize the platform using visual feedback.", corrected: "Humans stabilize the platform using visual feedback.", categories: ["Subject-verb agreement", "Article usage"] },
+  { sentence: "The series of experiments reveal an important trend.", corrected: "The series of experiments reveals an important trend.", categories: ["Subject-verb agreement"] },
+  { sentence: "The quality of the generated images vary across different runs.", corrected: "The quality of the generated images varies across different runs.", categories: ["Subject-verb agreement"] },
+  { sentence: "This class of models require large amounts of training data.", corrected: "This class of models requires large amounts of training data.", categories: ["Subject-verb agreement"] },
+  { sentence: "The analysis of the results suggest a nonlinear relationship.", corrected: "The analysis of the results suggests a nonlinear relationship.", categories: ["Subject-verb agreement"] },
+  { sentence: "Each layer in the network contain multiple attention heads.", corrected: "Each layer in the network contains multiple attention heads.", categories: ["Subject-verb agreement"] },
+  { sentence: "The distribution of errors follow a normal curve.", corrected: "The distribution of errors follows a normal curve.", categories: ["Subject-verb agreement"] },
+  { sentence: "One of the main challenges are scalability.", corrected: "One of the main challenges is scalability.", categories: ["Subject-verb agreement"] },
+  { sentence: "The process of training and evaluation take several hours.", corrected: "The process of training and evaluation takes several hours.", categories: ["Subject-verb agreement"] },
+  { sentence: "The majority of the participants was from engineering backgrounds.", corrected: "The majority of the participants were from engineering backgrounds.", categories: ["Subject-verb agreement"] },
+  { sentence: "The use of attention mechanisms have become widespread.", corrected: "The use of attention mechanisms has become widespread.", categories: ["Subject-verb agreement"] },
+
+  // === TENSE CONSISTENCY — 25 sentences ===
+  { sentence: "The author designs a novel framework and results show improvements.", corrected: "The author designed a novel framework and results showed improvements.", categories: ["Tense consistency"] },
+  { sentence: "Subjects can be hit by the obstacle during the experiment.", corrected: "Subjects could be hit by the obstacle during the experiment.", categories: ["Tense consistency"] },
+  { sentence: "This paper introduced a method that provides state-of-the-art results.", corrected: "This paper introduces a method that provides state-of-the-art results.", categories: ["Tense consistency"] },
+  { sentence: "We test the model on three benchmarks and observe consistent improvements.", corrected: "We tested the model on three benchmarks and observed consistent improvements.", categories: ["Tense consistency"] },
+  { sentence: "The data would be feed into the encoder for processing.", corrected: "The data are fed into the encoder for processing.", categories: ["Tense consistency", "Verb form"] },
+  { sentence: "The generator would be updated based on the discriminator's feedback.", corrected: "The generator is updated based on the discriminator's feedback.", categories: ["Tense consistency"] },
+  { sentence: "Structure has mainly three types in the literature.", corrected: "Structures are classified into three types in the literature.", categories: ["Tense consistency", "Sentence structure"] },
+  { sentence: "It tested on a benchmark and achieves 95% accuracy.", corrected: "It was tested on a benchmark and achieved 95% accuracy.", categories: ["Tense consistency"] },
+  { sentence: "The benchmark constructing from two platforms covers diverse scenarios.", corrected: "The benchmark constructed from two platforms covers diverse scenarios.", categories: ["Verb form"] },
+  { sentence: "The participants completed the task and then they report their experience.", corrected: "The participants completed the task and then reported their experience.", categories: ["Tense consistency"] },
+  { sentence: "In Section 3, we discussed the methodology. Section 4 presents the results.", corrected: "In Section 3, we discuss the methodology. Section 4 presents the results.", categories: ["Tense consistency"] },
+  { sentence: "The algorithm processed 1000 samples and produces accurate predictions.", corrected: "The algorithm processed 1000 samples and produced accurate predictions.", categories: ["Tense consistency"] },
+  { sentence: "We found that the model performs well, which suggested its robustness.", corrected: "We found that the model performed well, which suggested its robustness.", categories: ["Tense consistency"] },
+  { sentence: "The experiment ran for two hours and the system maintains stable performance.", corrected: "The experiment ran for two hours and the system maintained stable performance.", categories: ["Tense consistency"] },
+  { sentence: "Table 2 showed the comparison results across all methods.", corrected: "Table 2 shows the comparison results across all methods.", categories: ["Tense consistency"] },
+  { sentence: "The researchers collected the data and then analyze the patterns.", corrected: "The researchers collected the data and then analysed the patterns.", categories: ["Tense consistency"] },
+  { sentence: "Figure 3 illustrated the architecture of the proposed system.", corrected: "Figure 3 illustrates the architecture of the proposed system.", categories: ["Tense consistency"] },
+  { sentence: "The ablation study revealed that each component contributes to the improvement.", corrected: "The ablation study revealed that each component contributed to the improvement.", categories: ["Tense consistency"] },
+  { sentence: "Previous work showed that transformers are effective, and we build on this.", corrected: "Previous work has shown that transformers are effective, and we build on this.", categories: ["Tense consistency"] },
+  { sentence: "The training procedure converges after 50 epochs and achieved the target loss.", corrected: "The training procedure converged after 50 epochs and achieved the target loss.", categories: ["Tense consistency"] },
+  { sentence: "As shown in Table 1, the proposed method outperformed the baseline and provides a 10% improvement.", corrected: "As shown in Table 1, the proposed method outperforms the baseline and provides a 10% improvement.", categories: ["Tense consistency"] },
+  { sentence: "We will discuss the results that were obtained from three experiments.", corrected: "We discuss the results obtained from three experiments.", categories: ["Tense consistency"] },
+  { sentence: "The model learned to generate realistic images and is deployed in production.", corrected: "The model learned to generate realistic images and was deployed in production.", categories: ["Tense consistency"] },
+  { sentence: "Noted that the performance degrades under noisy conditions.", corrected: "Note that the performance degrades under noisy conditions.", categories: ["Verb form"] },
+  { sentence: "The evaluation is performed last week on a held-out test set.", corrected: "The evaluation was performed last week on a held-out test set.", categories: ["Tense consistency"] },
+
+  // === WORD CHOICE & CONFUSION — 30 sentences ===
+  { sentence: "The human interpretation is needed inside the progress of labelling.", corrected: "Human intervention is needed in the process of labelling.", categories: ["Word confusion"] },
+  { sentence: "The innovation of this paper is a new attention mechanism.", corrected: "The contribution of this paper is a new attention mechanism.", categories: ["Word choice"] },
+  { sentence: "The system did not decline in noises during operation.", corrected: "The system did not reduce noise during operation.", categories: ["Word confusion", "Uncountable noun"] },
+  { sentence: "The model relays on pre-trained features for classification.", corrected: "The model relies on pre-trained features for classification.", categories: ["Word confusion"] },
+  { sentence: "The encoder interferes the visual and textual features via attention.", corrected: "The encoder integrates the visual and textual features via attention.", categories: ["Word confusion"] },
+  { sentence: "The algorithm categories the inputs into three groups.", corrected: "The algorithm categorises the inputs into three groups.", categories: ["Word confusion"] },
+  { sentence: "The framework refine-tunes the pre-trained model on domain data.", corrected: "The framework fine-tunes the pre-trained model on domain data.", categories: ["Word confusion"] },
+  { sentence: "The date collected from the sensors were preprocessed.", corrected: "The data collected from the sensors were preprocessed.", categories: ["Word confusion"] },
+  { sentence: "The model answers rational questions about the image.", corrected: "The model answers reasoning questions about the image.", categories: ["Word confusion"] },
+  { sentence: "Besides, we also evaluate the model on two additional benchmarks.", corrected: "Additionally, we evaluate the model on two additional benchmarks.", categories: ["Word choice"] },
+  { sentence: "The author did an excellent job to summarize the literature.", corrected: "The authors effectively summarised the literature.", categories: ["Word choice"] },
+  { sentence: "The method provides another approach to the problem.", corrected: "The method presents an alternative approach to the problem.", categories: ["Word choice"] },
+  { sentence: "The features are mapped to a hyper space for clustering.", corrected: "The features are mapped to a latent space for clustering.", categories: ["Word choice"] },
+  { sentence: "The model result shows improved accuracy over the baseline.", corrected: "The model outputs show improved accuracy over the baseline.", categories: ["Word choice", "Singular/plural"] },
+  { sentence: "Apparently, the proposed method outperforms existing approaches.", corrected: "Notably, the proposed method outperforms existing approaches.", categories: ["Word choice"] },
+  { sentence: "The system gets deterministic and real result each time.", corrected: "The system obtains deterministic results each time.", categories: ["Word choice"] },
+  { sentence: "The paper concludes the literature on adversarial robustness.", corrected: "The paper reviews the literature on adversarial robustness.", categories: ["Word choice"] },
+  { sentence: "The loss related to the reconstruction error is minimised.", corrected: "The loss that measures the reconstruction error is minimised.", categories: ["Word choice"] },
+  { sentence: "The model have a similar concept as the variational autoencoder.", corrected: "The model shares a similar philosophy with the variational autoencoder.", categories: ["Word choice", "Subject-verb agreement"] },
+  { sentence: "The method demonstrated a better performance than the baseline.", corrected: "The method demonstrates improved performance over the baseline.", categories: ["Word choice", "Tense consistency"] },
+  { sentence: "The authors established a new benchmark for evaluation.", corrected: "The authors introduce a new benchmark for evaluation.", categories: ["Word choice"] },
+  { sentence: "The module add on robustness to the overall system.", corrected: "The module enhances the robustness of the overall system.", categories: ["Word choice", "Subject-verb agreement"] },
+  { sentence: "The agent is giving demonstration to the learner.", corrected: "The agent is providing demonstrations to the learner.", categories: ["Word choice", "Singular/plural"] },
+  { sentence: "The embodiment AI system learns from physical interaction.", corrected: "The embodied AI system learns from physical interaction.", categories: ["Word choice"] },
+  { sentence: "The method is another type of GAN, it replaced the loss function.", corrected: "The method extends GANs by replacing the loss function.", categories: ["Word choice", "Sentence structure"] },
+  { sentence: "The subjects were monitored during the experiment.", corrected: "The participants were monitored during the experiment.", categories: ["Word choice"] },
+  { sentence: "Really, the improvement is significant across all metrics.", corrected: "Significantly, the improvement is notable across all metrics.", categories: ["Word choice"] },
+  { sentence: "The system can be used for instance in autonomous navigation.", corrected: "The system can be used, such as in autonomous navigation.", categories: ["Word choice"] },
+  { sentence: "Based on this, we develop a new framework.", corrected: "Building on this, we develop a new framework.", categories: ["Word choice"] },
+  { sentence: "Combining the encoder and decoder together produces the full model.", corrected: "Integrating the encoder and decoder produces the full model.", categories: ["Redundancy"] },
+
+  // === UNCOUNTABLE NOUNS — 10 sentences ===
+  { sentence: "The researches shows that the approach is effective.", corrected: "The research shows that the approach is effective.", categories: ["Uncountable noun", "Subject-verb agreement"] },
+  { sentence: "We collected informations from multiple sources.", corrected: "We collected information from multiple sources.", categories: ["Uncountable noun"] },
+  { sentence: "The system did not significantly reduce noises in the signal.", corrected: "The system did not significantly reduce noise in the signal.", categories: ["Uncountable noun"] },
+  { sentence: "Further researches are needed to validate these findings.", corrected: "Further research is needed to validate these findings.", categories: ["Uncountable noun", "Subject-verb agreement"] },
+  { sentence: "The equipments used in the experiment are listed in Table 1.", corrected: "The equipment used in the experiment is listed in Table 1.", categories: ["Uncountable noun", "Subject-verb agreement"] },
+  { sentence: "We gathered feedbacks from the user study.", corrected: "We gathered feedback from the user study.", categories: ["Uncountable noun"] },
+  { sentence: "The knowledges gained from pre-training transfer to downstream tasks.", corrected: "The knowledge gained from pre-training transfers to downstream tasks.", categories: ["Uncountable noun", "Subject-verb agreement"] },
+  { sentence: "The softwares were tested on three different platforms.", corrected: "The software was tested on three different platforms.", categories: ["Uncountable noun"] },
+  { sentence: "New evidences suggest that the hypothesis is correct.", corrected: "New evidence suggests that the hypothesis is correct.", categories: ["Uncountable noun", "Subject-verb agreement"] },
+  { sentence: "The progresses made in this field are remarkable.", corrected: "The progress made in this field is remarkable.", categories: ["Uncountable noun", "Subject-verb agreement"] },
+
+  // === SENTENCE STRUCTURE & WORD ORDER — 20 sentences ===
+  { sentence: "There is a sensor beneath the platform for measuring force.", corrected: "A sensor was located beneath the platform for measuring force.", categories: ["Sentence structure"] },
+  { sentence: "How human integrates multisensory information is still unclear.", corrected: "How humans integrate multisensory information is still unclear.", categories: ["Sentence structure", "Subject-verb agreement"] },
+  { sentence: "We need to embedded the output into a vector space.", corrected: "We need to embed the output into a vector space.", categories: ["Verb form"] },
+  { sentence: "The system performs verify and refine on the generated output.", corrected: "The system performs verification and refinement on the generated output.", categories: ["Sentence structure"] },
+  { sentence: "Authors mentioned that the approach has several limitations.", corrected: "The authors outline that the approach has several limitations.", categories: ["Sentence structure", "Article usage"] },
+  { sentence: "We can from the data see that there is a clear trend.", corrected: "We can see from the data that there is a clear trend.", categories: ["Word order"] },
+  { sentence: "The network can for each input generate a unique output.", corrected: "The network can generate a unique output for each input.", categories: ["Word order"] },
+  { sentence: "There are many challenges in this area, for example the lack of labelled data.", corrected: "This area faces many challenges, such as the lack of labelled data.", categories: ["Sentence structure"] },
+  { sentence: "The model not only improves accuracy but also efficiency.", corrected: "The model improves not only accuracy but also efficiency.", categories: ["Word order"] },
+  { sentence: "It is important for to understand the underlying mechanism.", corrected: "It is important to understand the underlying mechanism.", categories: ["Sentence structure"] },
+  { sentence: "The method what we proposed outperforms the baseline.", corrected: "The method that we proposed outperforms the baseline.", categories: ["Sentence structure"] },
+  { sentence: "The reason why is that the model lacks diversity.", corrected: "The reason is that the model lacks diversity.", categories: ["Sentence structure"] },
+  { sentence: "There is many factors that contribute to this phenomenon.", corrected: "There are many factors that contribute to this phenomenon.", categories: ["Subject-verb agreement"] },
+  { sentence: "The system can in real time process the incoming data.", corrected: "The system can process the incoming data in real time.", categories: ["Word order"] },
+  { sentence: "We measured the speed which the robot completes the task.", corrected: "We measured the speed at which the robot completes the task.", categories: ["Sentence structure"] },
+  { sentence: "The more data we collect, more accurate the model becomes.", corrected: "The more data we collect, the more accurate the model becomes.", categories: ["Sentence structure"] },
+  { sentence: "Despite of the limitations, the results are promising.", corrected: "Despite the limitations, the results are promising.", categories: ["Sentence structure"] },
+  { sentence: "The architecture proposed by us achieves competitive results.", corrected: "Our proposed architecture achieves competitive results.", categories: ["Sentence structure"] },
+  { sentence: "Due to the model is complex, training takes longer.", corrected: "Because the model is complex, training takes longer.", categories: ["Sentence structure"] },
+  { sentence: "The algorithm which designed for real-time use runs efficiently.", corrected: "The algorithm designed for real-time use runs efficiently.", categories: ["Sentence structure"] },
+
+  // === SPELLING & COMPOUNDS — 10 sentences ===
+  { sentence: "The adaption of the model to new domains is straightforward.", corrected: "The adaptation of the model to new domains is straightforward.", categories: ["Spelling"] },
+  { sentence: "The encorder-decorder architecture is widely used in NLP.", corrected: "The encoder-decoder architecture is widely used in NLP.", categories: ["Spelling"] },
+  { sentence: "Multi sensory integration remains a significant chanlleges.", corrected: "Multisensory integration remains a significant challenge.", categories: ["Spelling", "Compound words"] },
+  { sentence: "The model uses a feed forward network with two extra layer.", corrected: "The model uses a feed-forward network with two extra layers.", categories: ["Compound words", "Singular/plural"] },
+  { sentence: "The robot must execute command from the high dimensional space.", corrected: "The robot must execute commands from the high-dimensional space.", categories: ["Compound words", "Singular/plural"] },
+  { sentence: "This is a wide-used technique in multi robot systems.", corrected: "This is a widely-used technique in multi-robot systems.", categories: ["Adverb form", "Compound words"] },
+  { sentence: "The chain of thoughts prompting improves reasoning performance.", corrected: "The chain-of-thought prompting improves reasoning performance.", categories: ["Compound words"] },
+  { sentence: "A new validated approach was tested on multi agent environments.", corrected: "A newly validated approach was tested on multi-agent environments.", categories: ["Adverb form", "Compound words"] },
+  { sentence: "The Issac simulator provides realistic physics for training.", corrected: "The Isaac simulator provides realistic physics for training.", categories: ["Spelling"] },
+  { sentence: "A recent published paper addresses this open problem.", corrected: "A recently published paper addresses this open problem.", categories: ["Adverb form"] },
+
+  // === VERB FORMS & PHRASES — 10 sentences ===
+  { sentence: "The data are feed into the network for training.", corrected: "The data are fed into the network for training.", categories: ["Verb form"] },
+  { sentence: "The method is another type of GAN, it replaced the loss function with a Wasserstein distance.", corrected: "The method extends GANs by replacing the loss function with a Wasserstein distance.", categories: ["Verb form", "Sentence structure"] },
+  { sentence: "Such as ResNet, many architectures use skip connections.", corrected: "Many architectures, such as ResNet, use skip connections.", categories: ["Word order"] },
+  { sentence: "The model shares a similar concept to the original Transformer.", corrected: "The model shares a similar philosophy with the original Transformer.", categories: ["Word choice"] },
+  { sentence: "The framework add on robustness by including adversarial training.", corrected: "The framework enhances robustness by including adversarial training.", categories: ["Word choice", "Subject-verb agreement"] },
+  { sentence: "The system integrate the feedback in the control policy.", corrected: "The system integrates the feedback into the control policy.", categories: ["Subject-verb agreement", "Preposition choice"] },
+  { sentence: "The method extend from healthy subjects to clinical populations.", corrected: "The method extends from healthy subjects to clinical populations.", categories: ["Subject-verb agreement"] },
+  { sentence: "We used an attention mechanism to enhanced the representation.", corrected: "We used an attention mechanism to enhance the representation.", categories: ["Verb form"] },
+  { sentence: "The training procedure, followed by a evaluation step, is standard.", corrected: "The training procedure, followed by an evaluation step, is standard.", categories: ["Article usage"] },
+  { sentence: "The loss function is used for measures the reconstruction error.", corrected: "The loss function is used to measure the reconstruction error.", categories: ["Verb form"] },
 ];
 
 
@@ -997,7 +1206,7 @@ function GrammarTaskView({ items, onDone }) {
   const checkAnswer = async () => {
     if (!userAnswer.trim()) {
       setShowAnswer(true);
-      setFeedback(null);
+      setFeedback({ match: false, verdict: "skipped", explanation: `The corrected version is: "${practice.corrected}"` });
       return;
     }
     setLoading(true);
@@ -1005,25 +1214,26 @@ function GrammarTaskView({ items, onDone }) {
     const isExact = normalized(userAnswer) === normalized(practice.corrected);
 
     if (isExact) {
-      setFeedback({ match: true });
+      setFeedback({ match: true, verdict: "correct", explanation: "Perfect — your correction matches exactly." });
       setShowAnswer(true);
       setLoading(false);
       return;
     }
 
     const result = await callClaude(
-      `You are an academic English grammar tutor. Compare the user's correction of a sentence against the model answer. Return ONLY a JSON object with:
-- "match": boolean (true if semantically equivalent and grammatically correct, even if wording differs slightly)
+      `You are an academic English grammar tutor. Analyze the user's correction of a sentence that contains grammar errors. Return ONLY a JSON object with:
+- "match": boolean (true if semantically equivalent to the model answer and grammatically correct, even if wording differs slightly)
 - "verdict": string ("correct", "partially correct", or "incorrect")
-- "explanation": string (brief explanation of what the user got right and what they missed, referencing the specific grammar issues: ${practice.categories.join(", ")})
+- "explanation": string (detailed feedback on the user's sentence: point out which errors they fixed correctly, which errors remain, and any new errors they introduced. Reference the specific grammar issues: ${practice.categories.join(", ")}. Explain WHY each remaining issue is wrong and how to fix it.)
 No markdown fences, no preamble. JSON only.`,
       `Original (with errors): "${practice.sentence}"\nModel answer: "${practice.corrected}"\nUser's answer: "${userAnswer}"`
     );
     try {
       const parsed = JSON.parse(result);
+      if (!parsed || !parsed.verdict) throw new Error("invalid");
       setFeedback(parsed);
     } catch {
-      setFeedback({ match: false, verdict: "partially correct", explanation: "Could not evaluate — compare with the correct version below." });
+      setFeedback({ match: false, verdict: "incorrect", explanation: `Could not evaluate your answer. The corrected version is: "${practice.corrected}"` });
     }
     setShowAnswer(true);
     setLoading(false);
@@ -1064,7 +1274,8 @@ No markdown fences, no preamble. JSON only.`,
       </div>
 
       <textarea value={userAnswer} onChange={(e) => setUserAnswer(e.target.value)}
-        placeholder="Type the corrected sentence…"
+        onKeyDown={(e) => { if (e.ctrlKey && e.key === "Enter" && !showAnswer && !loading) checkAnswer(); }}
+        placeholder="Type the corrected sentence… (Ctrl+Enter to check)"
         className="w-full bg-ink-800 border border-ink-700 rounded-xl shadow-sm p-4 text-parchment-100 font-sans text-sm resize-none h-20 placeholder:text-parchment-500 focus:border-gold-400/40 transition-colors mb-4" />
 
       {!showAnswer && (
@@ -1100,10 +1311,6 @@ No markdown fences, no preamble. JSON only.`,
             </div>
           )}
 
-          <div className="bg-sage-400/5 border border-sage-400/20 rounded-xl p-4 mb-4 animate-fade-in">
-            <span className="text-sage-400 text-xs uppercase tracking-widest font-sans">Correct version</span>
-            <p className="text-parchment-100 font-sans text-sm mt-2">{practice.corrected}</p>
-          </div>
           <button onClick={nextOrDone}
             className="w-full py-3 rounded-xl bg-sage-400/10 border border-sage-400/25 text-sage-400 hover:bg-sage-400/20 transition-all font-sans text-sm flex items-center justify-center gap-2">
             {currentIndex < items.length - 1 ? (
